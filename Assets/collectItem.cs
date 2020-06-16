@@ -23,6 +23,10 @@ public class collectItem : MonoBehaviour
             pos = Camera.main.ScreenToWorldPoint(pos);
             transform.position = pos;
         }
+        else
+        {
+            transform.position = new Vector3(100,0,100);
+        }
     }
 
 

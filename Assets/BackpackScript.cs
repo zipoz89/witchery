@@ -13,7 +13,7 @@ public class BackpackScript : MonoBehaviour
         var item = other.GetComponent<GroundItem>();
         if (item)
         {
-            inventory.AddItem(new Item(item.item), 1);
+            inventory.AddItem(new Item(item.item), item.amount);
             Destroy(other.gameObject);
             
         }
@@ -34,6 +34,6 @@ public class BackpackScript : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        inventory.Container.Items.Clear();
+        inventory.Container.Items = new InventorySlot[35];
     }
 }

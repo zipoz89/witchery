@@ -15,6 +15,7 @@ public enum Atributes
     waer
 }
 
+
 public abstract class ItemObject : ScriptableObject
 {
     public int Id;
@@ -35,9 +36,11 @@ public class Item
 {
     public string Name;
     public int Id;
+    //public ItemObject itemObj;
     public Item(ItemObject item)
     {
         Name = item.name;
         Id = item.Id;
+        //itemObj = item;
     }
 }

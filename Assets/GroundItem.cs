@@ -12,8 +12,13 @@ public class GroundItem : MonoBehaviour, ISerializationCallbackReceiver
     public GameObject targetObj;
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
+    public int amount = 1;
 
 
+    private void Start()
+    {
+        targetObj = GameObject.Find("Backpack");
+    }
 
     private void LateUpdate()
     {
@@ -47,4 +52,18 @@ public class GroundItem : MonoBehaviour, ISerializationCallbackReceiver
     public void OnAfterDeserialize()
     {
     }
+
+    //public void SpawnItem(Vector3 pos, ItemObject itemSpawn) 
+    //{
+    //    item = itemSpawn;
+    //    pos.z = 0;
+    //    Instantiate(this, pos, Quaternion.identity);
+    //}
+
+    //public void SpawnItem(Vector3 pos, InventorySlot itemSpawn)
+    //{
+    //    item = itemSpawn.item.itemObj;
+    //    pos.z = 0;
+    //    Instantiate(this, pos, Quaternion.identity);
+    //}
 }
