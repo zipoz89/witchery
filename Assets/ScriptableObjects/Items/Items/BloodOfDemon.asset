@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c52dd0c59ca6f49a113a0b715f49f6, type: 3}
+  m_Name: BloodOfDemon
+  m_EditorClassIdentifier: 
+  Id: 1
+  uiDisplay: {fileID: 21300000, guid: b9548df0c9bef044f83912df2f20826b, type: 3}
+  stackable: 1
+  type: 4
+  description: 
+  data:
+    Name: 
+    Id: 1
+  isEmpty: 0

@@ -10,17 +10,25 @@ public class backpackSlide : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public bool isOver;
     public bool isInventoryOpen;
     public GameObject panel;
-    openBackpack inventory;
+    private CanvasGroup cg;
+
     void Start()
     {
-        isInventoryOpen = false;
+
+        isInventoryOpen = true;
         animator = GetComponent<Animator>();
-        inventory = GetComponent<openBackpack>();
+        
+        cg = panel.GetComponent<CanvasGroup>();
         if (animator != null)
         {
             isOver = animator.GetBool("IsOver");
             isInventoryOpen = animator.GetBool("IsOpen");
         }
+
+        panel.GetComponent<RectTransform>().localPosition = new Vector3(100, 160, 0);
+        animator.SetBool("IsOpen", false);
+        cg.alpha = 0;
+        isInventoryOpen = false;
     }
 
 
@@ -44,14 +52,16 @@ public class backpackSlide : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (!isInventoryOpen)
         {
             animator.SetBool("IsOpen", true);
+            panel.GetComponent<RectTransform>().localPosition = new Vector3(100, -9, 0);
+            cg.alpha = 1;
             isInventoryOpen = true;
-            panel.gameObject.SetActive(true);
         }
         else
         {
+            panel.GetComponent<RectTransform>().localPosition = new Vector3(100, 160, 0);
             animator.SetBool("IsOpen", false);
+            cg.alpha = 0;
             isInventoryOpen = false;
-            panel.gameObject.SetActive(false);
         }
     }
 

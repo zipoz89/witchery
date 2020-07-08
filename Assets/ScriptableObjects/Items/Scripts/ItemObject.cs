@@ -4,10 +4,13 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Food,
+    TakeOnly,
+    Default,  
     Ingredient,
     Fuel,
-    Default
+    EmptyFlask,
+    Flask,
+    
 }
 
 public enum Atributes
@@ -15,14 +18,16 @@ public enum Atributes
     waer
 }
 
-
+[CreateAssetMenu(fileName = "New Item", menuName = "Invenotry System/Item/item")]
 public abstract class ItemObject : ScriptableObject
 {
     public int Id;
     public Sprite uiDisplay;
+    public bool stackable;
     public ItemType type;
     [TextArea(15,20)]
     public string description;
+    public Item data = new Item();
 
     public Item createItem()
     {
@@ -35,7 +40,13 @@ public abstract class ItemObject : ScriptableObject
 public class Item
 {
     public string Name;
-    public int Id;
+    public int Id = -1;
+    public Item() 
+    {
+        Name = "";
+        Id = -1;
+    }
+
     //public ItemObject itemObj;
     public Item(ItemObject item)
     {

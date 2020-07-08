@@ -6,10 +6,11 @@ using UnityEngine;
 public class GroundItem : MonoBehaviour, ISerializationCallbackReceiver
 {
     public ItemObject item;
+    public InventoryObject inventory;
 
-    private bool isPicked = false;
+    public bool isPicked = false;
 
-    public GameObject targetObj;
+    private GameObject targetObj;
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
     public int amount = 1;
@@ -31,6 +32,7 @@ public class GroundItem : MonoBehaviour, ISerializationCallbackReceiver
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+
         if(collider.tag == "ItemCollector")
         if (!isPicked) {
             isPicked = true;
@@ -45,8 +47,10 @@ public class GroundItem : MonoBehaviour, ISerializationCallbackReceiver
 
     public void OnBeforeSerialize()
     {
+#if UNITY_EDITOR
         GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
         EditorUtility.SetDirty(GetComponentInChildren<SpriteRenderer>());
+#endif
     }
 
     public void OnAfterDeserialize()
