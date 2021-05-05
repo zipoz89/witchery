@@ -1,2 +1,2 @@
-# This is a demo for a inventory system that I made
-<iframe src='https://gfycat.com/ifr/PointedDistantBrownbutterfly' frameborder='0' scrolling='no' allowfullscreen width='640' height='405'></iframe>
+This is a demo for a inventory system that I made
+![Alt Text](https://s3.gifyu.com/images/ezgif-3-435e29e9b441.md.gif)
